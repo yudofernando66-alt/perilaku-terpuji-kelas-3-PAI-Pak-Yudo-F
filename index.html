@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Akhlak Terpuji - PAI Kelas 3 SD</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brandBlue: '#0284C7',
+                        brandGreen: '#10B981',
+                        brandYellow: '#F59E0B',
+                        brandBg: '#F0F9FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F9FF;
+            color: #1E293B;
+            touch-action: manipulation;
+        }
+        .card-soft {
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-soft:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08);
+        }
+        .btn-large {
+            padding: 0.875rem 1.5rem;
+            font-weight: 700;
+            border-radius: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            user-select: none;
+        }
+        .btn-large:active {
+            transform: scale(0.97);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E2E8F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0284C7;
+            border-radius: 4px;
+        }
+        /* Styles for Print Layout */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white;
+                color: black;
+            }
+            .print-area {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- KONFIGURASI TAUTAN GOOGLE DOKUMEN -->
+    <script>
+        // Guru dapat mengganti URL di bawah ini dengan link Google Docs LKM yang sebenarnya
+        const GOOGLE_DOCS_URL = "https://docs.google.com/document/u/0/";
+    </script>
+
+    <!-- HEADER & NAVIGASI ATAS (Ditampilkan jika tidak di Halaman Depan) -->
+    <header id="mainHeader" class="hidden bg-white border-b border-sky-100 sticky top-0 z-50 shadow-sm no-print">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <button onclick="goToMenu()" class="flex items-center gap-2 text-sky-600 font-bold hover:text-sky-800 transition">
+                <i class="fa-solid fa-house text-xl"></i>
+                <span class="hidden sm:inline text-lg">Menu Utama</span>
+            </button>
+            <div class="text-center">
+                <h1 class="text-base sm:text-lg font-bold text-slate-800">PETUALANGAN AKHLAK TERPUJI</h1>
+                <p class="text-xs text-slate-500">PAI Kelas 3 SD • SDN 002 Singkep</p>
+            </div>
+            <button onclick="openModal('infoModal')" class="text-sky-600 hover:text-sky-800 p-2">
+                <i class="fa-solid fa-circle-info text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA (PANEL BERGANTI) -->
+    <main class="flex-grow max-w-5xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- 1. HALAMAN PEMBUKA -->
+        <section id="pageLanding" class="flex flex-col items-center justify-center text-center py-8 min-h-[80vh]">
+            <div class="card-soft p-8 sm:p-12 max-w-2xl w-full border-2 border-sky-200 bg-gradient-to-b from-sky-50 to-white">
+                <div class="inline-block p-4 bg-sky-100 rounded-full text-sky-600 mb-4 animate-bounce">
+                    <i class="fa-solid fa-hands-praying text-5xl"></i>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-sky-700 mb-2 leading-tight">PETUALANGAN AKHLAK TERPUJI</h1>
+                <h2 class="text-xl text-emerald-600 font-semibold mb-6">"Aku Anak Berbakti dan Menghormati Sesama"</h2>
+                
+                <div class="bg-white p-4 rounded-xl shadow-inner border border-sky-100 mb-6 text-left text-sm text-slate-600">
+                    <p><i class="fa-solid fa-user-tie text-sky-500 w-6"></i> <strong>Guru:</strong> Yudo Fernando, S.Pd.</p>
+                    <p><i class="fa-solid fa-school text-emerald-500 w-6"></i> <strong>Sekolah:</strong> SDN 002 Singkep</p>
+                    <p><i class="fa-solid fa-book-quran text-amber-500 w-6"></i> <strong>Mata Pelajaran:</strong> PAI & Budi Pekerti (Kelas III SD)</p>
+                    <p><i class="fa-solid fa-bookmark text-indigo-500 w-6"></i> <strong>Materi:</strong> BAB 3 — Perilaku Terpuji Adalah Kepribadianku</p>
+                </div>
+
+                <button onclick="goToMenu()" class="btn-large bg-sky-600 hover:bg-sky-700 text-white text-xl w-full shadow-lg shadow-sky-200">
+                    <i class="fa-solid fa-play"></i> MULAI BELAJAR
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. MENU UTAMA -->
+        <section id="pageMenu" class="hidden space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800">Pilih Petualangan Belajarmu!</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Pilih salah satu menu di bawah ini untuk belajar dan bermain</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Menu Item 1 -->
+                <button onclick="showSection('pageTujuan')" class="card-soft p-5 text-left border-l-8 border-sky-500 flex items-center gap-4 hover:bg-sky-50 transition">
+                    <div class="p-3 bg-sky-100 text-sky-600 rounded-xl text-2xl"><i class="fa-solid fa-bullseye"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">1. Tujuan Belajar</h3>
+                        <p class="text-xs text-slate-500">Apa yang akan kita capai?</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 2 -->
+                <button onclick="showSection('pageMateri1')" class="card-soft p-5 text-left border-l-8 border-emerald-500 flex items-center gap-4 hover:bg-emerald-50 transition">
+                    <div class="p-3 bg-emerald-100 text-emerald-600 rounded-xl text-2xl"><i class="fa-solid fa-heart"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">2. Berbakti Orang Tua</h3>
+                        <p class="text-xs text-slate-500">Sayangi Ayah dan Ibu</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 3 -->
+                <button onclick="showSection('pageMateri2')" class="card-soft p-5 text-left border-l-8 border-amber-500 flex items-center gap-4 hover:bg-amber-50 transition">
+                    <div class="p-3 bg-amber-100 text-amber-600 rounded-xl text-2xl"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">3. Berbakti Kepada Guru</h3>
+                        <p class="text-xs text-slate-500">Hormati pahlawan tanpa tanda jasa</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 4 -->
+                <button onclick="showSection('pageMateri3')" class="card-soft p-5 text-left border-l-8 border-indigo-500 flex items-center gap-4 hover:bg-indigo-50 transition">
+                    <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl text-2xl"><i class="fa-solid fa-people-holding-hands"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">4. Menghormati Sesama</h3>
+                        <p class="text-xs text-slate-500">Menghargai teman & orang lain</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 5 -->
+                <button onclick="showSection('pageCerita')" class="card-soft p-5 text-left border-l-8 border-purple-500 flex items-center gap-4 hover:bg-purple-50 transition">
+                    <div class="p-3 bg-purple-100 text-purple-600 rounded-xl text-2xl"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">5. Cerita Interaktif</h3>
+                        <p class="text-xs text-slate-500">Pilih pilihanmu sendiri!</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 6 -->
+                <button onclick="startGame()" class="card-soft p-5 text-left border-l-8 border-rose-500 flex items-center gap-4 hover:bg-rose-50 transition">
+                    <div class="p-3 bg-rose-100 text-rose-600 rounded-xl text-2xl"><i class="fa-solid fa-gamepad"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">6. Permainan Akhlak</h3>
+                        <p class="text-xs text-slate-500">Bermain sambil menguji kebaikan</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 7 -->
+                <button onclick="showSection('pageKKA')" class="card-soft p-5 text-left border-l-8 border-teal-500 flex items-center gap-4 hover:bg-teal-50 transition">
+                    <div class="p-3 bg-teal-100 text-teal-600 rounded-xl text-2xl"><i class="fa-solid fa-robot"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">7. Tantangan KKA & AI</h3>
+                        <p class="text-xs text-slate-500">Koding & Berpikir Kritis AI</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 8 -->
+                <button onclick="startQuiz()" class="card-soft p-5 text-left border-l-8 border-blue-600 flex items-center gap-4 hover:bg-blue-50 transition">
+                    <div class="p-3 bg-blue-100 text-blue-600 rounded-xl text-2xl"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">8. Kuis Evaluasi</h3>
+                        <p class="text-xs text-slate-500">Uji pemahaman 15 Soal</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 9 -->
+                <button onclick="showSection('pageLKM')" class="card-soft p-5 text-left border-l-8 border-orange-500 flex items-center gap-4 hover:bg-orange-50 transition">
+                    <div class="p-3 bg-orange-100 text-orange-600 rounded-xl text-2xl"><i class="fa-solid fa-file-lines"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">9. Lembar Kerja Murid</h3>
+                        <p class="text-xs text-slate-500">Cetak LKM & Komitmen</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 10 -->
+                <button onclick="showSection('pageRefleksi')" class="card-soft p-5 text-left border-l-8 border-yellow-500 flex items-center gap-4 hover:bg-yellow-50 transition">
+                    <div class="p-3 bg-yellow-100 text-yellow-600 rounded-xl text-2xl"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">10. Refleksi Diri</h3>
+                        <p class="text-xs text-slate-500">Renungkan perbuatanmu</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 11 -->
+                <button onclick="openGoogleDocs()" class="card-soft p-5 text-left border-l-8 border-sky-400 flex items-center gap-4 hover:bg-sky-50 transition">
+                    <div class="p-3 bg-sky-100 text-sky-600 rounded-xl text-2xl"><i class="fa-brands fa-google-drive"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">11. Google Dokumen</h3>
+                        <p class="text-xs text-slate-500">Akses dokumen daring guru</p>
+                    </div>
+                </button>
+
+                <!-- Menu Item 12: Penilaian Guru -->
+                <button onclick="showSection('pagePenilaian')" class="card-soft p-5 text-left border-l-8 border-slate-600 flex items-center gap-4 hover:bg-slate-100 transition">
+                    <div class="p-3 bg-slate-200 text-slate-700 rounded-xl text-2xl"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Panduan Penilaian Guru</h3>
+                        <p class="text-xs text-slate-500">Rubrik & Panduan Guru</p>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- 3. TUJUAN PEMBELAJARAN (Pembelajaran Mendalam: Berkesadaran) -->
+        <section id="pageTujuan" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-sky-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i class="fa-solid fa-bullseye text-3xl text-sky-600"></i>
+                    <h2 class="text-2xl font-bold text-slate-800">Tujuan Pembelajaran</h2>
+                </div>
+                <p class="text-slate-600 mb-6">Halo anak hebat! Sebelum kita petualangan, mari baca tujuan pembelajaran kita hari ini:</p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3 p-3 bg-sky-50 rounded-lg">
+                        <i class="fa-solid fa-circle-check text-sky-600 mt-1"></i>
+                        <p class="text-slate-700"><strong>Memahami Akhlak Terpuji:</strong> Murid mampu menyebutkan contoh sikap berbakti kepada orang tua, guru, dan menghormati orang lain.</p>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-emerald-50 rounded-lg">
+                        <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                        <p class="text-slate-700"><strong>Mengaplikasikan Kebaikan:</strong> Murid mampu memilih tindakan terpuji dalam kehidupan sehari-hari di rumah dan sekolah.</p>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-amber-50 rounded-lg">
+                        <i class="fa-solid fa-circle-check text-amber-600 mt-1"></i>
+                        <p class="text-slate-700"><strong>Refleksi Akhlak:</strong> Murid mampu merefleksikan perilakunya serta berkomitmen menjadi anak yang bertutur kata santun dan menghargai sesama.</p>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-teal-50 rounded-lg">
+                        <i class="fa-solid fa-circle-check text-teal-600 mt-1"></i>
+                        <p class="text-slate-700"><strong>Berpikir Kritis & Digital (KKA):</strong> Murid mampu mengurutkan langkah kebaikan, memahami logika sebab-akibat (jika-maka), dan memilah saran AI dengan bijak.</p>
+                    </div>
+                </div>
+
+                <!-- Pertanyaan Pemantik -->
+                <div class="mt-8 p-4 bg-amber-100 rounded-xl border border-amber-300">
+                    <h3 class="font-bold text-amber-900 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question"></i> Pertanyaan Pemantik:
+                    </h3>
+                    <p class="text-amber-800 text-sm mt-1">
+                        "Apa yang kamu rasakan ketika orang lain menyapamu dengan ramah dan tersenyum? Bagaimana perasaan orang tuamu jika kamu membantu membuang sampah tanpa diminta?"
+                    </p>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                    <button onclick="showSection('pageMateri1')" class="btn-large bg-sky-600 text-white hover:bg-sky-700">
+                        Lanjut ke Materi 1 <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MATERI 1: BERBAKTI KEPADA ORANG TUA -->
+        <section id="pageMateri1" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-emerald-500">
+                <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Materi 1</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2 mb-4">Berbakti Kepada Orang Tua</h2>
+                
+                <p class="text-slate-700 leading-relaxed mb-4">
+                    Orang tua (Ayah dan Ibu) adalah orang yang merawat, menyayangi, dan mendidik kita sejak kecil. Berbakti kepada orang tua hukumnya <strong>wajib</strong> dan merupakan perintah Allah SWT.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+                        <h3 class="font-bold text-emerald-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-heart"></i> Contoh Perilaku Terpuji:</h3>
+                        <ul class="list-disc list-inside text-sm text-slate-700 space-y-2">
+                            <li>Berbicara santun, lembut, dan tidak membentak.</li>
+                            <li>Membantu pekerjaan rumah (merapikan tempat tidur, menyapu).</li>
+                            <li>Mendengarkan dan mematuhi nasihat yang baik.</li>
+                            <li>Mengucapkan terima kasih dan meminta izin jika keluar rumah.</li>
+                            <li>Selalu mendoakan kedua orang tua setiap selesai shalat.</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-sky-50 rounded-xl border border-sky-200 flex flex-col justify-center items-center text-center">
+                        <div class="text-5xl text-emerald-500 mb-2"><i class="fa-solid fa-hands-holding-child"></i></div>
+                        <p class="text-xs text-slate-600 font-semibold">"Doa Orang Tua Adalah Keberkahan untuk Anak"</p>
+                        <p class="text-xs text-slate-500 mt-2 italic">Doa untuk orang tua: "Rabbighfir lii wa liwaalidayya warhamhumaa kamaa rabbayaanii shaghiiraa."</p>
+                    </div>
+                </div>
+
+                <!-- Latihan Interaktif Singkat -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-circle-question text-sky-600"></i> Mini Kuis Interaktif:</h3>
+                    <p class="text-sm text-slate-600 mb-3">Ketika Ibu sedang sibuk memasak di dapur dan minta tolong diambilkan garam, apa tindakanmu?</p>
+                    <div id="m1QuizOptions" class="space-y-2">
+                        <button onclick="checkM1Answer(this, false)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-sky-50 text-sm">A. Pura-pura tidak mendengar karena sedang main game.</button>
+                        <button onclick="checkM1Answer(this, true)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-sky-50 text-sm">B. Segera mengambilkan garam dengan senang hati dan senyuman.</button>
+                        <button onclick="checkM1Answer(this, false)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-sky-50 text-sm">C. Menyuruh adik saja yang mengambilkan.</button>
+                    </div>
+                    <div id="m1Feedback" class="mt-3 hidden p-3 rounded-lg text-sm font-semibold"></div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu
+                    </button>
+                    <button onclick="showSection('pageMateri2')" class="btn-large bg-emerald-600 text-white hover:bg-emerald-700">
+                        Materi 2: Berbakti Guru <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. MATERI 2: BERBAKTI KEPADA GURU -->
+        <section id="pageMateri2" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-amber-500">
+                <span class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Materi 2</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2 mb-4">Berbakti Kepada Guru</h2>
+                
+                <p class="text-slate-700 leading-relaxed mb-4">
+                    Guru adalah orang tua kita di sekolah. Guru mengajari kita membaca, menulis, berhitung, serta membimbing kita menjadi anak yang berakhlaqul karimah.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <h3 class="font-bold text-amber-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-star"></i> Contoh Perilaku Terpuji Kepada Guru:</h3>
+                        <ul class="list-disc list-inside text-sm text-slate-700 space-y-2">
+                            <li>Mengucapkan salam dan menyapa guru ketika bertemu.</li>
+                            <li>Mendengarkan dengan tenang saat guru menjelaskan pelajaran.</li>
+                            <li>Mengerjakan tugas sekolah dengan jujur dan tepat waktu.</li>
+                            <li>Bertanya dengan santun jika ada materi yang belum dipahami.</li>
+                            <li>Menjaga kebersihan dan kerapian ruang kelas.</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex flex-col justify-center items-center text-center">
+                        <div class="text-5xl text-amber-500 mb-2"><i class="fa-solid fa-chalkboard-user"></i></div>
+                        <p class="text-xs text-slate-600 font-semibold">"Menghormati Guru Membuat Ilmu Menjadi Bermanfaat"</p>
+                    </div>
+                </div>
+
+                <!-- Latihan Interaktif -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-circle-question text-amber-600"></i> Pilih Tindakan yang Tepat:</h3>
+                    <p class="text-sm text-slate-600 mb-3">Pak Yudo sedang menjelaskan pelajaran PAI di depan kelas. Apa yang seharusnya dilakukan murid kelas 3?</p>
+                    <div id="m2QuizOptions" class="space-y-2">
+                        <button onclick="checkM2Answer(this, true)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-amber-50 text-sm">A. Mendengarkan dengan sungguh-sungguh dan mencatat poin penting.</button>
+                        <button onclick="checkM2Answer(this, false)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-amber-50 text-sm">B. Mengobrol dan bermain dengan teman di samping.</button>
+                        <button onclick="checkM2Answer(this, false)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-amber-50 text-sm">C. Menggambar di meja sekolah.</button>
+                    </div>
+                    <div id="m2Feedback" class="mt-3 hidden p-3 rounded-lg text-sm font-semibold"></div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="showSection('pageMateri1')" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                    <button onclick="showSection('pageMateri3')" class="btn-large bg-amber-600 text-white hover:bg-amber-700">
+                        Materi 3: Menghormati Sesama <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MATERI 3: MENGHORMATI ORANG LAIN -->
+        <section id="pageMateri3" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-indigo-500">
+                <span class="text-xs font-bold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Materi 3</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2 mb-4">Menghormati Orang Lain & Menjaga Diri</h2>
+                
+                <p class="text-slate-700 leading-relaxed mb-4">
+                    Di sekeliling kita ada teman, tetangga, dan orang lain. Kita harus saling menghormati dan menghargai perbedaan agar hidup damai dan bahagia.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="p-4 bg-indigo-50 rounded-xl border border-indigo-200">
+                        <h3 class="font-bold text-indigo-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-handshake"></i> Sikap Menghormati Orang Lain:</h3>
+                        <ul class="list-disc list-inside text-sm text-slate-700 space-y-2">
+                            <li>Mendengarkan ketika orang lain sedang berbicara.</li>
+                            <li>Tidak mengejek atau memanggil teman dengan julukan buruk.</li>
+                            <li>Menggunakan 3 Kata Ajaib: <strong>Tolong, Maaf, Terima Kasih</strong>.</li>
+                            <li>Menghargai teman yang berbeda agama, suku, atau pendapat.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Batas Aman / Menjaga Diri -->
+                    <div class="p-4 bg-rose-50 rounded-xl border border-rose-200">
+                        <h3 class="font-bold text-rose-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Penting: Menjaga Diri & Menolak Bahaya</h3>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            Menghormati orang lain <strong>TIDAK BERARTI</strong> kamu harus menuruti semua ajakan orang. 
+                            <br><br>
+                            <span class="font-bold text-rose-700">Kamu BERHAK MENOLAK dengan tegas dan sopan</span> jika ada ajakan yang berbahaya, merugikan, atau membuatmu tidak nyaman (seperti diajak membolos, mengambil barang orang, atau perbuatan curang). Segera minta bantuan guru atau orang tua!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="showSection('pageMateri2')" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali
+                    </button>
+                    <button onclick="showSection('pageCerita')" class="btn-large bg-indigo-600 text-white hover:bg-indigo-700">
+                        Lanjut ke Cerita Interaktif <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CERITA INTERAKTIF -->
+        <section id="pageCerita" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-purple-500">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open-reader text-purple-600"></i> Cerita Interaktif
+                    </h2>
+                    <span id="storyBadge" class="text-xs font-bold bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Cerita 1 dari 3</span>
+                </div>
+
+                <!-- Story Container -->
+                <div id="storyCard" class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                    <h3 id="storyTitle" class="text-xl font-bold text-purple-900 mb-3">...</h3>
+                    <p id="storyText" class="text-slate-700 leading-relaxed mb-6 text-base">...</p>
+
+                    <div id="storyOptions" class="space-y-3">
+                        <!-- Pilihan Tombol Direset via JS -->
+                    </div>
+
+                    <div id="storyFeedback" class="hidden mt-6 p-4 rounded-xl text-sm font-medium"></div>
+                </div>
+
+                <div class="mt-6 flex justify-between items-center">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu
+                    </button>
+                    <button id="btnNextStory" onclick="nextStory()" class="hidden btn-large bg-purple-600 text-white hover:bg-purple-700">
+                        Cerita Selanjutnya <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. PERMAINAN AKHLAK -->
+        <section id="pageGame" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-rose-500">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-gamepad text-rose-600"></i> Permainan: Pilih Perilaku Terpuji
+                        </h2>
+                        <p class="text-xs text-slate-500">Jawab dengan tepat dan kumpulkan poinmu!</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-500">Skor Kamu</span>
+                        <div id="gameScore" class="text-2xl font-extrabold text-rose-600">0</div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-200 rounded-full h-3 mb-6 overflow-hidden">
+                    <div id="gameProgressBar" class="bg-rose-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+
+                <!-- Game Card -->
+                <div id="gameBox" class="bg-rose-50 p-6 rounded-xl border border-rose-200">
+                    <span id="gameCategory" class="text-xs font-bold text-rose-700 uppercase tracking-wide">Kategori</span>
+                    <h3 id="gameQuestion" class="text-lg font-bold text-slate-800 mt-2 mb-4">...</h3>
+
+                    <div id="gameAnswers" class="space-y-3">
+                        <!-- Opsi Jawaban -->
+                    </div>
+
+                    <div id="gameFeedback" class="hidden mt-4 p-4 rounded-xl text-sm font-semibold"></div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu
+                    </button>
+                    <button id="btnNextGame" onclick="nextGameQuestion()" class="hidden btn-large bg-rose-600 text-white hover:bg-rose-700">
+                        Soal Berikutnya <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. TANTANGAN KODING DAN KKA -->
+        <section id="pageKKA" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-teal-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i class="fa-solid fa-robot text-3xl text-teal-600"></i>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Tantangan Koding & AI (KKA)</h2>
+                        <p class="text-xs text-slate-500">Belajar Berpikir Logis dan Bijak Memakai Teknologi AI</p>
+                    </div>
+                </div>
+
+                <!-- Sub Aktivitas 1: Algoritma Langkah Kebaikan -->
+                <div class="bg-teal-50 p-5 rounded-xl border border-teal-200 mb-6">
+                    <h3 class="font-bold text-teal-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-list-ol"></i> Aktivitas 1: Urutkan Algoritma Meminta Maaf
+                    </h3>
+                    <p class="text-sm text-slate-700 mb-3">
+                        Komputer bekerja mengikuti urutan langkah (Algoritma). Sama seperti ketika kita melakukan kesalahan, ada langkah yang runut!
+                    </p>
+                    <p class="text-xs font-semibold text-teal-800 mb-2">Klik langkah-langkah di bawah untuk mengurutkannya dari yang awal hingga akhir:</p>
+
+                    <div id="algoItems" class="space-y-2 mb-4">
+                        <!-- Langkah di-render JS -->
+                    </div>
+                    <button onclick="checkAlgorithm()" class="btn-large bg-teal-600 text-white hover:bg-teal-700 text-sm py-2">
+                        Cek Urutan
+                    </button>
+                    <div id="algoFeedback" class="hidden mt-3 p-3 rounded-lg text-sm font-semibold"></div>
+                </div>
+
+                <!-- Sub Aktivitas 2: Logika JIKA ... MAKA ... -->
+                <div class="bg-sky-50 p-5 rounded-xl border border-sky-200 mb-6">
+                    <h3 class="font-bold text-sky-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-code-branch"></i> Aktivitas 2: Logika "JIKA... MAKA..."
+                    </h3>
+                    <p class="text-sm text-slate-700 mb-3">
+                        <strong>Kondisi:</strong> "JIKA kamu melihat Ayah baru pulang kerja dan terlihat sangat lelah, MAKA keputusan terbaikmu adalah..."
+                    </p>
+                    <div class="space-y-2">
+                        <button onclick="checkLogic(this, false)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-sky-100 text-sm">A. Meminta Ayah membelikan mainan baru sekarang juga.</button>
+                        <button onclick="checkLogic(this, true)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-sky-100 text-sm">B. Menyambut dengan senyum, mengambilkan air minum, dan tidak gaduh.</button>
+                        <button onclick="checkLogic(this, false)" class="w-full text-left p-3 bg-white rounded-lg border hover:bg-sky-100 text-sm">C. Langsung pergi bermain di luar rumah.</button>
+                    </div>
+                    <div id="logicFeedback" class="hidden mt-3 p-3 rounded-lg text-sm font-semibold"></div>
+                </div>
+
+                <!-- Sub Aktivitas 3: Periksa Saran AI -->
+                <div class="bg-purple-50 p-5 rounded-xl border border-purple-200">
+                    <h3 class="font-bold text-purple-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-brain"></i> Aktivitas 3: Kritis Memeriksa Saran AI (Kecerdasan Artifisial)
+                    </h3>
+                    <div class="bg-amber-100 p-3 rounded-lg border border-amber-300 text-xs text-amber-900 mb-3">
+                        <i class="fa-solid fa-triangle-exclamation"></i> <strong>Pelajaran Penting:</strong> AI (Kecerdasan Artifisial) bisa pintar, tetapi AI bisa keliru atau memberi saran buruk! Manusia yang berakhlak harus selalu memeriksa kembali jawaban AI.
+                    </div>
+                    <p class="text-sm text-slate-700 mb-3">
+                        <strong>Situasi:</strong> Temanmu meminjam pensilmu lalu tidak sengaja mematahkannya. Kamu bertanya ke AI: <em>"Apa yang harus aku lakukan?"</em>. AI memberikan 2 opsi saran di bawah ini. Mana saran yang <strong>Sesuai Akhlak Terpuji</strong>?
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <button onclick="checkAISuggestion(this, false)" class="p-4 bg-white rounded-xl border hover:border-purple-400 text-left">
+                            <span class="text-xs font-bold text-rose-600 block mb-1">Saran AI A</span>
+                            <p class="text-xs text-slate-700">"Balas dengan mematahkan semua pensil milik temanmu agar adil!"</p>
+                        </button>
+                        <button onclick="checkAISuggestion(this, true)" class="p-4 bg-white rounded-xl border hover:border-purple-400 text-left">
+                            <span class="text-xs font-bold text-emerald-600 block mb-1">Saran AI B</span>
+                            <p class="text-xs text-slate-700">"Memaafkan temanmu karena itu ketidaksengajaan, dan meraut pensil bersama-sama."</p>
+                        </button>
+                    </div>
+                    <div id="aiFeedback" class="hidden mt-3 p-3 rounded-lg text-sm font-semibold"></div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu
+                    </button>
+                    <button onclick="startQuiz()" class="btn-large bg-teal-600 text-white hover:bg-teal-700">
+                        Lanjut ke Kuis Evaluasi <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. KUIS EVALUASI (15 SOAL) -->
+        <section id="pageKuis" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-blue-600">
+                <div id="quizHeader" class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Kuis Evaluasi Akhlak</h2>
+                        <p class="text-xs text-slate-500">Soal <span id="quizNumber">1</span> dari 15</p>
+                    </div>
+                    <div class="bg-blue-100 text-blue-800 text-sm font-bold px-4 py-2 rounded-xl">
+                        Nilai Sementara: <span id="quizLiveScore">0</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar Kuis -->
+                <div class="w-full bg-slate-200 rounded-full h-2.5 mb-6">
+                    <div id="quizProgressBar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 6.66%"></div>
+                </div>
+
+                <!-- Question Area -->
+                <div id="quizBox" class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                    <h3 id="quizQuestion" class="text-base sm:text-lg font-bold text-slate-800 mb-4">...</h3>
+                    <div id="quizOptions" class="space-y-3">
+                        <!-- Opsi Jawaban -->
+                    </div>
+                </div>
+
+                <!-- Quiz Results Panel (Hidden until finished) -->
+                <div id="quizResultPanel" class="hidden bg-white p-6 rounded-xl border-2 border-blue-200 text-center space-y-4">
+                    <div class="inline-block p-4 bg-blue-100 text-blue-600 rounded-full">
+                        <i class="fa-solid fa-trophy text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800">Hasil Evaluasi Belajar</h3>
+                    <div class="text-5xl font-extrabold text-blue-600" id="finalScoreDisplay">0</div>
+                    <p class="text-sm text-slate-600">Skala Nilai 0 - 100</p>
+
+                    <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto text-left text-sm p-4 bg-slate-50 rounded-xl">
+                        <div><i class="fa-solid fa-circle-check text-emerald-500"></i> Benar: <strong id="countRight">0</strong></div>
+                        <div><i class="fa-solid fa-circle-xmark text-rose-500"></i> Salah: <strong id="countWrong">0</strong></div>
+                    </div>
+
+                    <div id="quizSaran" class="p-4 rounded-xl text-sm text-left"></div>
+
+                    <!-- Pembahasan -->
+                    <div class="text-left mt-6">
+                        <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-book text-blue-600"></i> Pembahasan Soal:</h4>
+                        <div id="quizReviewContainer" class="max-h-60 overflow-y-auto space-y-3 pr-2 text-xs">
+                            <!-- Pembahasan diisi via JS -->
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap justify-center gap-3">
+                        <button onclick="startQuiz()" class="btn-large bg-blue-600 text-white hover:bg-blue-700">
+                            <i class="fa-solid fa-rotate-right"></i> Ulangi Kuis
+                        </button>
+                        <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                            <i class="fa-solid fa-house"></i> Menu Utama
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quizFooterNav" class="mt-6 flex justify-between">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Keluar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. LEMBAR KERJA MURID (LKM) -->
+        <section id="pageLKM" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-orange-500 print-area">
+                <div class="flex justify-between items-center mb-6 border-b pb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Lembar Kerja Murid (LKM)</h2>
+                        <p class="text-xs text-slate-500">PAI & Budi Pekerti • Kelas 3 SD</p>
+                    </div>
+                    <button onclick="window.print()" class="no-print btn-large bg-orange-500 hover:bg-orange-600 text-white text-sm">
+                        <i class="fa-solid fa-print"></i> Cetak LKM
+                    </button>
+                </div>
+
+                <!-- Identitas Murid -->
+                <div class="grid grid-cols-2 gap-4 bg-orange-50 p-4 rounded-xl border border-orange-200 mb-6 text-sm">
+                    <div><strong>Nama Murid:</strong> <input type="text" placeholder="Tulis namamu..." class="w-full mt-1 p-2 border rounded bg-white"></div>
+                    <div><strong>Kelas / No. Absen:</strong> <input type="text" placeholder="3A / 05" class="w-full mt-1 p-2 border rounded bg-white"></div>
+                </div>
+
+                <!-- LKM 1 -->
+                <div class="mb-6 p-4 border rounded-xl bg-white">
+                    <h3 class="font-bold text-slate-800 border-b pb-2 mb-3">LKM 1: Aku Berbakti Kepada Orang Tua</h3>
+                    <p class="text-xs text-slate-600 mb-2">Tuliskan 3 hal kebaikan yang sudah kamu bantu untuk Ayah dan Ibu di rumah minggu ini:</p>
+                    <textarea rows="3" class="w-full p-2 border rounded text-sm" placeholder="1. Merapikan tempat tidur...&#10;2. ...&#10;3. ..."></textarea>
+                </div>
+
+                <!-- LKM 2 -->
+                <div class="mb-6 p-4 border rounded-xl bg-white">
+                    <h3 class="font-bold text-slate-800 border-b pb-2 mb-3">LKM 2: Aku Berbakti Kepada Guru</h3>
+                    <p class="text-xs text-slate-600 mb-2">Bagaimana sikapmu jika gurumu sedang membawa tumpukan buku pelajaran ke kelas?</p>
+                    <textarea rows="2" class="w-full p-2 border rounded text-sm" placeholder="Sikapku adalah..."></textarea>
+                </div>
+
+                <!-- LKM 3 -->
+                <div class="mb-6 p-4 border rounded-xl bg-white">
+                    <h3 class="font-bold text-slate-800 border-b pb-2 mb-3">LKM 3: Aku Menghormati Semua Orang</h3>
+                    <p class="text-xs text-slate-600 mb-2">Tuliskan pengalamanmu saat menggunakan kata "Tolong", "Maaf", dan "Terima Kasih":</p>
+                    <textarea rows="3" class="w-full p-2 border rounded text-sm" placeholder="Tulis pengalamannya di sini..."></textarea>
+                </div>
+
+                <!-- Ruang Komitmen -->
+                <div class="p-4 border-2 border-dashed border-orange-300 rounded-xl bg-orange-50 text-center">
+                    <h4 class="font-bold text-orange-900 mb-1">JANJI KHUSUS / KOMITMEN DIRI</h4>
+                    <p class="text-xs text-orange-700 italic mb-3">"Mulai hari ini saya berjanji akan selalu bertutur kata santun dan menghormati orang tua, guru, serta teman."</p>
+                    <div class="flex justify-around items-end pt-8 text-xs text-slate-600">
+                        <div>
+                            <p>Tanda Tangan Murid,</p>
+                            <div class="h-12"></div>
+                            <p>( .................................... )</p>
+                        </div>
+                        <div>
+                            <p>Tanda Tangan Orang Tua,</p>
+                            <div class="h-12"></div>
+                            <p>( .................................... )</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between no-print">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. REFLEKSI & KOMITMEN -->
+        <section id="pageRefleksi" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-yellow-500 print-area">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb text-yellow-500"></i> Refleksi & Komitmen Diri
+                    </h2>
+                    <button onclick="window.print()" class="no-print btn-large bg-yellow-500 hover:bg-yellow-600 text-white text-sm">
+                        <i class="fa-solid fa-print"></i> Cetak Refleksi
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-yellow-50 rounded-xl border border-yellow-200">
+                        <label class="block font-bold text-yellow-900 text-sm mb-2">1. Apa hal terpenting yang baru kamu pelajari hari ini?</label>
+                        <textarea class="w-full p-3 border rounded-lg text-sm bg-white" rows="2" placeholder="Saya belajar bahwa..."></textarea>
+                    </div>
+
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+                        <label class="block font-bold text-emerald-900 text-sm mb-2">2. Perilaku terpuji apa yang sudah kamu lakukan minggu ini?</label>
+                        <textarea class="w-full p-3 border rounded-lg text-sm bg-white" rows="2" placeholder="Saya sudah membantu..."></textarea>
+                    </div>
+
+                    <div class="p-4 bg-sky-50 rounded-xl border border-sky-200">
+                        <label class="block font-bold text-sky-900 text-sm mb-2">3. Satu kebaikan apa yang akan kamu lakukan hari ini juga?</label>
+                        <textarea class="w-full p-3 border rounded-lg text-sm bg-white" rows="2" placeholder="Hari ini saya akan..."></textarea>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between no-print">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. PANDUAN PENILAIAN GURU -->
+        <section id="pagePenilaian" class="hidden space-y-6">
+            <div class="card-soft p-6 sm:p-8 border-t-4 border-slate-600">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-clipboard-check text-slate-600"></i> Panduan & Rubrik Penilaian Guru
+                </h2>
+                <p class="text-xs text-slate-500 mb-6">Disusun untuk Guru PAI: Yudo Fernando, S.Pd. (SDN 002 Singkep)</p>
+
+                <div class="space-y-6 text-sm text-slate-700">
+                    <!-- Aspek Pengetahuan -->
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <h3 class="font-bold text-slate-900 mb-2">1. Assessment Pengetahuan (Kuis Evaluasi)</h3>
+                        <p class="text-xs text-slate-600 mb-2">Diukur dari hasil Kuis Evaluasi Interaktif (15 Soal). Rumus Nilai:</p>
+                        <div class="bg-white p-3 rounded border font-mono text-center text-xs text-sky-700 font-bold">
+                            Nilai = (Jumlah Jawaban Benar / 15) × 100
+                        </div>
+                    </div>
+
+                    <!-- Rubrik Sikap -->
+                    <div class="p-4 bg-slate-50 rounded-xl border">
+                        <h3 class="font-bold text-slate-900 mb-2">2. Rubrik Penilaian Sikap (Observasi Guru)</h3>
+                        <p class="text-xs text-slate-600 mb-3">*Catatan Guru: Nilai sikap tidak hanya ditentukan oleh nilai kuis, melainkan pengamatan pengaplikasian nyata murid sehari-hari.</p>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-left border-collapse border border-slate-300">
+                                <thead class="bg-slate-200">
+                                    <tr>
+                                        <th class="border border-slate-300 p-2">Kategori</th>
+                                        <th class="border border-slate-300 p-2">Deskripsi Indikator Sikap</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2 font-bold text-emerald-700">Sangat Berkembang (SB)</td>
+                                        <td class="border border-slate-300 p-2">Selalu bertutur kata santun, mendengarkan orang tua/guru tanpa diminta, serta membimbing teman secara konsisten.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2 font-bold text-blue-700">Berkembang Sesuai Harapan (BSH)</td>
+                                        <td class="border border-slate-300 p-2">Sering bersikap santun, membantu orang tua/guru, dan mau meminta maaf jika melakukan kesalahan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2 font-bold text-amber-700">Mulai Berkembang (MB)</td>
+                                        <td class="border border-slate-300 p-2">Mulai bersikap santun dan membantu jika sudah diingatkan oleh guru atau orang tua.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300 p-2 font-bold text-rose-700">Perlu Bimbingan (PB)</td>
+                                        <td class="border border-slate-300 p-2">Masih sering acuh, berkata kurang sopan, dan memerlukan bimbingan khusus dari guru/orang tua.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="goToMenu()" class="btn-large bg-slate-200 text-slate-700 hover:bg-slate-300">
+                        <i class="fa-solid fa-house"></i> Menu Utama
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-sky-100 py-4 text-center text-xs text-slate-500 no-print">
+        <p>© 2026 Media Pembelajaran PAI SD • Disusun oleh <strong>Yudo Fernando, S.Pd.</strong> (SDN 002 Singkep)</p>
+    </footer>
+
+    <!-- MODAL INFORMASI APLIKASI -->
+    <div id="infoModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="card-soft max-w-md w-full p-6 space-y-4">
+            <h3 class="text-xl font-bold text-slate-800 border-b pb-2">Tentang Aplikasi</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Aplikasi ini dirancang berbasis pendekatan TPACK, Pembelajaran Mendalam (PM), serta Koding dan Kecerdasan Artifisial (KKA) untuk murid kelas 3 SD.
+            </p>
+            <div class="bg-sky-50 p-3 rounded-lg text-xs space-y-1">
+                <p><strong>Status Koneksi:</strong> Luring (Offline ready)</p>
+                <p><strong>Privasi Data:</strong> Data murid aman, tidak dikirim ke server.</p>
+            </div>
+            <div class="text-right">
+                <button onclick="closeModal('infoModal')" class="btn-large bg-sky-600 text-white text-sm py-2">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIKA JAVASCRIPT APLIKASI -->
+    <script>
+        // --- NAVIGASI HALAMAN ---
+        function showSection(sectionId) {
+            const sections = ['pageLanding', 'pageMenu', 'pageTujuan', 'pageMateri1', 'pageMateri2', 'pageMateri3', 'pageCerita', 'pageGame', 'pageKKA', 'pageKuis', 'pageLKM', 'pageRefleksi', 'pagePenilaian'];
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+
+            const target = document.getElementById(sectionId);
+            if (target) target.classList.remove('hidden');
+
+            const header = document.getElementById('mainHeader');
+            if (sectionId === 'pageLanding') {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToMenu() {
+            showSection('pageMenu');
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function openGoogleDocs() {
+            window.open(GOOGLE_DOCS_URL, '_blank');
+        }
+
+        // --- MINI KUIS MATERI 1 & 2 ---
+        function checkM1Answer(btn, isCorrect) {
+            const fb = document.getElementById('m1Feedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            if(isCorrect) {
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-check"></i> Hebat! Membantu Ibu dengan gembira adalah perilaku anak terpuji!';
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Kurang tepat. Anak berbakti selalu siap membantu orang tua saat dibutuhkan.';
+            }
+        }
+
+        function checkM2Answer(btn, isCorrect) {
+            const fb = document.getElementById('m2Feedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            if(isCorrect) {
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-check"></i> Tepat sekali! Mendengarkan guru adalah bentuk menghormati ilmu dan guru.';
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Kurang tepat. Mengobrol saat guru berbicara adalah perilaku kurang sopan.';
+            }
+        }
+
+        // --- CERITA INTERAKTIF DATA ---
+        const stories = [
+            {
+                title: "Cerita 1: Membantu Ibu di Dapur",
+                text: "Hari Minggu pagi, Ibu sedang sibuk menyiapkan sarapan di dapur. Adik menangis karena mainannya terjatuh. Apa yang kamu lakukan?",
+                options: [
+                    { text: "Menenangkan adik dan mengambilkan mainannya agar Ibu bisa lanjut memasak.", correct: true, explain: "Luar biasa! Kamu meredakan masalah dan membantu meringankan beban Ibu." },
+                    { text: "Tetap menonton TV dan mengabaikan tangisan adik.", correct: false, explain: "Kurang tepat. Anak berbakti peduli pada kenyamanan orang tua dan saudara." }
+                ]
+            },
+            {
+                title: "Cerita 2: Bertemu Pak Guru di Jalan",
+                text: "Saat kamu bersepada di dekat sekolah, kamu melihat Pak Yudo sedang membawa kantong plastik berat berisi buku.",
+                options: [
+                    { text: "Menghentikan sepeda, mengucapkan salam, dan menawarkan bantuan menyebarang/membawakan.", correct: true, explain: "Sangat bagus! Menyapa dan membantu guru adalah tanda anak berakhlak mulia." },
+                    { text: "Pura-pura tidak melihat dan langsung mengayuh sepeda kencang.", correct: false, explain: "Kurang terpuji. Jika bertemu guru, hendaknya kita menyapa dengan santun." }
+                ]
+            },
+            {
+                title: "Cerita 3: Berbeda Mainan Favorit",
+                text: "Temanmu Budi ingin bermain bola, sedangkan kamu ingin bermain petak sempet. Terjadi perbedaan pendapat.",
+                options: [
+                    { text: "Bermusyawarah dan bergantian memainkan permainan agar semua senang.", correct: true, explain: "Hebat! Menghargai perbedaan pendapat adalah sikap terpuji." },
+                    { text: "Marah dan memaksa Budi harus mengikuti keinginanmu.", correct: false, explain: "Memaksa kehendak dapat merusak pertemanan dan tidak menghormati orang lain." }
+                ]
+            }
+        ];
+
+        let currentStoryIndex = 0;
+
+        function loadStory(index) {
+            const story = stories[index];
+            document.getElementById('storyBadge').innerText = `Cerita ${index + 1} dari ${stories.length}`;
+            document.getElementById('storyTitle').innerText = story.title;
+            document.getElementById('storyText').innerText = story.text;
+            
+            const optionsDiv = document.getElementById('storyOptions');
+            optionsDiv.innerHTML = '';
+            document.getElementById('storyFeedback').classList.add('hidden');
+            document.getElementById('btnNextStory').classList.add('hidden');
+
+            story.options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 bg-white rounded-xl border border-purple-200 hover:bg-purple-100 transition text-sm font-semibold text-slate-700";
+                btn.innerText = opt.text;
+                btn.onclick = () => selectStoryOption(opt);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function selectStoryOption(opt) {
+            const fb = document.getElementById('storyFeedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            if(opt.correct) {
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check"></i> <strong>Jawaban Baik:</strong> ${opt.explain}`;
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>Pelajaran:</strong> ${opt.explain}`;
+            }
+            document.getElementById('btnNextStory').classList.remove('hidden');
+        }
+
+        function nextStory() {
+            currentStoryIndex++;
+            if(currentStoryIndex < stories.length) {
+                loadStory(currentStoryIndex);
+            } else {
+                currentStoryIndex = 0;
+                alert("Selamat! Kamu telah menyelesaikan semua cerita interaktif!");
+                goToMenu();
+            }
+        }
+
+        // --- PERMAINAN AKHLAK (12 SOAL MINIMAL) ---
+        const gameQuestions = [
+            { cat: "Orang Tua", q: "Bagaimana cara bicaramu saat minta izin keluar rumah kepada Ibu?", answers: ["Berteriak dari luar", "Menghampiri, tersenyum, dan berkata santun", "Langsung pergi tanpa pamit"], correct: 1, exp: "Meminta izin dengan santun membuat orang tua tenang." },
+            { cat: "Orang Tua", q: "Apa yang kamu lakukan jika Ayah menasihatimu tentang belajar?", answers: ["Mendengarkan dengan baik dan melaksanakannya", "Acuh tak acuh", "Memantah dengan suara keras"], correct: 0, exp: "Nasihat orang tua adalah demi kebaikanmu." },
+            { cat: "Orang Tua", q: "Waktu doa yang tepat untuk mendoakan kedua orang tua adalah...", answers: ["Setiap selesai shalat", "Hanya saat diberi uang jajan", "Tidak perlu berdoa"], correct: 0, exp: "Mendoakan orang tua adalah bentuk bakti berkelanjutan." },
+            { cat: "Orang Tua", q: "Membantu merapikan tempat tidur sendiri termasuk bentuk...", answers: ["Membebani orang tua", "Berbakti dan meringankan beban orang tua", "Perilaku sia-sia"], correct: 1, exp: "Mandiri menjaga kerapian membantu orang tua." },
+            
+            { cat: "Guru", q: "Bagaimana cara bertanya yang sopan kepada Guru di kelas?", answers: ["Mengangkat tangan terlebih dahulu dengan ramah", "Memotong pembicaraan guru secara tiba-tiba", "Berdiri di atas kursi"], correct: 0, exp: "Mengangkat tangan dahulu adalah tertib berakhlak." },
+            { cat: "Guru", q: "Tugas sekolah yang diberikan Ibu/Pak Guru sebaiknya dikerjakan dengan...", answers: ["Jujur dan sungguh-sungguh", "Menyontek pekerjaan teman", "Dibiarkan saja"], correct: 0, exp: "Jujur dalam belajar membawa keberkahan ilmu." },
+            { cat: "Guru", q: "Saat bertemu Guru di luar sekolah, kita sebaiknya...", answers: ["Pura-pura tidak kenal", "Menyapa dan mengucapkan salam", "Lari bersembunyi"], correct: 1, exp: "Menyapa guru bentuk penghormatan sepanjang waktu." },
+            { cat: "Guru", q: "Menjaga papan tulis dan meja kelas tetap bersih adalah contoh...", answers: ["Menghormati lingkungan belajar dan guru", "Perbuatan membuang waktu", "Tugas penjaga sekolah saja"], correct: 0, exp: "Kelas bersih membuat guru dan murid nyaman." },
+
+            { cat: "Menghormati Sesama", q: "Jika tidak sengaja menyenggol es krim teman hingga jatuh, kamu harus...", answers: ["Meminta maaf dan menggantinya jika mampu", "Tertawa dan lari", "Lurus menyalahkan teman"], correct: 0, exp: "Segera meminta maaf adalah akhlak pembuat damai." },
+            { cat: "Menghormati Sesama", q: "Ketika ada teman baru yang berasal dari suku berbeda, sikap kita adalah...", answers: ["Menjauhinya", "Menyambut ramah dan berteman tanpa membeda-bedakan", "Mengejek aksen bicaranya"], correct: 1, exp: "Semua manusia setara dan harus saling menghargai." },
+            { cat: "Menghormati Sesama", q: "Tiga kata ajaib yang harus sering kita ucapkan adalah...", answers: ["Tolong, Maaf, Terima Kasih", "Biarin, Bodo Amat, Biar Saja", "Kamu, Dia, Saya"], correct: 0, exp: "Tolong, Maaf, dan Terima Kasih membuat hubungan harmonis." },
+            { cat: "Menghormati Sesama", q: "Jika teman mengajakmu melakukan tindakan berbahaya seperti membolos, kamu harus...", answers: ["Menolak dengan tegas dan sopan", "Ikut saja agar dipuji", "Takut dan diam saja"], correct: 0, exp: "Menolak ajakan buruk adalah wujud menjaga diri." }
+        ];
+
+        let currentGameIndex = 0;
+        let gameScore = 0;
+        let gameAnswered = false;
+
+        function startGame() {
+            showSection('pageGame');
+            currentGameIndex = 0;
+            gameScore = 0;
+            document.getElementById('gameScore').innerText = gameScore;
+            loadGameQuestion();
+        }
+
+        function loadGameQuestion() {
+            gameAnswered = false;
+            const q = gameQuestions[currentGameIndex];
+            document.getElementById('gameCategory').innerText = `Kategori: ${q.cat}`;
+            document.getElementById('gameQuestion').innerText = `${currentGameIndex + 1}. ${q.q}`;
+            document.getElementById('gameFeedback').classList.add('hidden');
+            document.getElementById('btnNextGame').classList.add('hidden');
+
+            const percent = ((currentGameIndex) / gameQuestions.length) * 100;
+            document.getElementById('gameProgressBar').style.width = `${percent}%`;
+
+            const ansDiv = document.getElementById('gameAnswers');
+            ansDiv.innerHTML = '';
+
+            q.answers.forEach((ans, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 bg-white rounded-xl border border-rose-200 hover:bg-rose-100 transition text-sm font-semibold text-slate-700";
+                btn.innerText = ans;
+                btn.onclick = () => selectGameAnswer(idx, btn);
+                ansDiv.appendChild(btn);
+            });
+        }
+
+        function selectGameAnswer(selectedIdx, btnEl) {
+            if(gameAnswered) return; // Mencegah klik berulang untuk tambah poin
+            gameAnswered = true;
+
+            const q = gameQuestions[currentGameIndex];
+            const fb = document.getElementById('gameFeedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if(selectedIdx === q.correct) {
+                gameScore += 10;
+                document.getElementById('gameScore').innerText = gameScore;
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check"></i> <strong>Benar! (+10 Poin)</strong> ${q.exp}`;
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>Kurang Tepat.</strong> ${q.exp}`;
+            }
+
+            document.getElementById('btnNextGame').classList.remove('hidden');
+        }
+
+        function nextGameQuestion() {
+            currentGameIndex++;
+            if(currentGameIndex < gameQuestions.length) {
+                loadGameQuestion();
+            } else {
+                document.getElementById('gameProgressBar').style.width = `100%`;
+                alert(`Permainan Selesai! Total Skor Akhir Kamu: ${gameScore}`);
+                goToMenu();
+            }
+        }
+
+        // --- KODING DAN KKA LOGIC ---
+        // Aktivitas 1: Algoritma Meminta Maaf
+        const algoStepsData = [
+            { id: 1, text: "Sadar dan mengakui bahwa kita melakukan kesalahan." },
+            { id: 2, text: "Menghampiri orang yang kita rugikan dengan tenang." },
+            { id: 3, text: "Mengucapkan kata 'Maaf' secara ikhlas dan bersungguh-sungguh." },
+            { id: 4, text: "Berjanji berusaha tidak mengulangi kesalahan tersebut." }
+        ];
+        let currentAlgoOrder = [3, 1, 4, 2]; // Diacak
+
+        function renderAlgoUI() {
+            const container = document.getElementById('algoItems');
+            container.innerHTML = '';
+            currentAlgoOrder.forEach((stepId, index) => {
+                const item = algoStepsData.find(s => s.id === stepId);
+                const div = document.createElement('div');
+                div.className = "flex items-center justify-between p-3 bg-white rounded-lg border text-xs font-semibold text-slate-700";
+                div.innerHTML = `
+                    <span>Langkah ${index + 1}: ${item.text}</span>
+                    <div class="flex gap-1">
+                        <button onclick="moveAlgo(${index}, -1)" class="px-2 py-1 bg-slate-200 rounded hover:bg-slate-300">↑</button>
+                        <button onclick="moveAlgo(${index}, 1)" class="px-2 py-1 bg-slate-200 rounded hover:bg-slate-300">↓</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function moveAlgo(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex < 0 || newIndex >= currentAlgoOrder.length) return;
+            const temp = currentAlgoOrder[index];
+            currentAlgoOrder[index] = currentAlgoOrder[newIndex];
+            currentAlgoOrder[newIndex] = temp;
+            renderAlgoUI();
+        }
+
+        function checkAlgorithm() {
+            const isCorrect = currentAlgoOrder.every((val, idx) => val === idx + 1);
+            const fb = document.getElementById('algoFeedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if(isCorrect) {
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-check"></i> Algoritma Tepat! Urutan langkah meminta maafmu sudah sangat runtut dan berakhlak.';
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Urutan belum tepat. Coba geser lagi menggunakan tombol panah atas/bawah!';
+            }
+        }
+
+        function checkLogic(btn, isCorrect) {
+            const fb = document.getElementById('logicFeedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            if(isCorrect) {
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-check"></i> Logika "JIKA-MAKA" Tepat! Empati dan perhatian kepada orang tua adalah anak sholeh.';
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Kurang pas. Pikirkan perasaan Ayah yang sedang lelah.';
+            }
+        }
+
+        function checkAISuggestion(btn, isCorrect) {
+            const fb = document.getElementById('aiFeedback');
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            if(isCorrect) {
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-check"></i> Pilihan Cerdas! Kamu berhasil memverifikasi bahwa Saran B sesuai dengan akhlak terpuji Islam.';
+            } else {
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Waspada! Saran A adalah saran dendam yang tidak sesuai akhlak terpuji. AI bisa salah!';
+            }
+        }
+
+        // --- KUIS EVALUASI (15 SOAL LENGKAP) ---
+        const quizData = [
+            // 5 Soal Orang Tua
+            { q: "Hukum berbakti kepada kedua orang tua bagi seorang anak adalah...", options: ["Wajib", "Sunnah", "Haram"], correct: 0, review: "Berbakti kepada orang tua adalah perintah Allah SWT yang hukumnya wajib." },
+            { q: "Berikut ini yang merupakan contoh sikap berbakti kepada Ibu adalah...", options: ["Mengabaikan panggilannya", "Membantu merapikan meja makan", "Bicara dengan nada tinggi"], correct: 1, review: "Membantu pekerjaan rumah adalah bukti kasih sayang anak kepada Ibu." },
+            { q: "Ketika Ayah memberi nasihat, sikap kita yang benar adalah...", options: ["Mendengarkan dengan penuh perhatian", "Pura-pura tidur", "Memutus pembicaraan Ayah"], correct: 0, review: "Mendengarkan nasihat orang tua dengan tenang adalah akhlak terpuji." },
+            { q: "Doa untuk kedua orang tua hendaknya dibaca...", options: ["Setiap selesai shalat", "Saat dimarahi saja", "Setahun sekali"], correct: 0, review: "Mendoakan keselamatan dan ampunan orang tua dilakukan rutin setiap hari." },
+            { q: "Apabila kamu ingin pergi bermain ke rumah teman, kamu harus...", options: ["Langsung pergi tanpa pamit", "Meminta izin dan bersalaman kepada orang tua", "Meninggalkan surat rahasia"], correct: 1, review: "Meminta izin menjaga keselamatan dan ketenangan pikiran orang tua." },
+
+            // 5 Soal Guru
+            { q: "Guru adalah orang tua kita di...", options: ["Rumah", "Sekolah", "Pasar"], correct: 1, review: "Di sekolah, guru bertindak sebagai orang tua yang membimbing kita." },
+            { q: "Contoh sikap menghormati guru di dalam kelas adalah...", options: ["Mendengarkan saat guru menjelaskan pelajaran", "Mengobrol keras saat belajar", "Bermain HP di dalam kelas"], correct: 0, review: "Mendengarkan penjelasan guru membuat suasana kelas kondusif." },
+            { q: "Ketika bertemu dengan Pak Yudo di koridor sekolah, kita mengucapkan...", options: ["Salam dan sapaan ramah", "Meneriaki dari jauh", "Melihat lalu acuh"], correct: 0, review: "Menyapa guru dengan salam adalah tanda hormat dan sopan santun." },
+            { q: "Mengerjakan PR dan tugas sekolah dengan jujur adalah wujud...", options: ["Tanggung jawab dan rasa hormat kepada guru", "Keterpaksaan murid", "Perbuatan sia-sia"], correct: 0, review: "Jujur mengerjakan tugas menghargai ikhtiar guru mengajar." },
+            { q: "Jika ada pelajaran yang belum kamu pahami, cara bertanya kepada guru adalah...", options: ["Mengangkat tangan dan bertanya dengan bahasa yang santun", "Menghentakkan meja", "Berdiam diri dan mengeluh"], correct: 0, review: "Bertanya secara santun diperbolehkan dan disukai guru." },
+
+            // 5 Soal Menghormati Orang Lain
+            { q: "Kata yang diucapkan saat kita membutuhkan bantuan orang lain adalah...", options: ["Tolong", "Maaf", "Terima kasih"], correct: 0, review: "Kata 'Tolong' menunjukkan kerendahan hati saat minta bantuan." },
+            { q: "Jika kita melakukan kesalahan pada teman, kita harus segera mengucapkan...", options: ["Terima kasih", "Maaf", "Sama-sama"], correct: 1, review: "Meminta maaf memulihkan kerukunan pertemanan." },
+            { q: "Sikap kita terhadap teman yang berbeda suku atau kebiasaan adalah...", options: ["Saling menghargai dan tetap berteman baik", "Mengejek perbedaannya", "Memusuhi"], correct: 0, review: "Perbedaan adalah rahmat Allah yang harus dihormati." },
+            { q: "Saat orang lain sedang berbicara menyampaikan pendapat, kita sebaiknya...", options: ["Menyela percakapan", "Mendengarkan dengan sopan", "Menutup telinga"], correct: 1, review: "Menyimak orang berbicara adalah etika sopan santun utama." },
+            { q: "Apabila ada seseorang yang mengajakmu bertindak jahat atau curang, sikapmu adalah...", options: ["Ikut saja", "Menolak dengan santun dan melaporkan ke guru/orang tua", "Takut dan merahasiakan"], correct: 1, review: "Menghormati orang lain bukan berarti menuruti perbuatan jahat." }
+        ];
+
+        let currentQuizIndex = 0;
+        let quizUserAnswers = [];
+
+        function startQuiz() {
+            showSection('pageKuis');
+            currentQuizIndex = 0;
+            quizUserAnswers = new Array(quizData.length).fill(null);
+            
+            document.getElementById('quizBox').classList.remove('hidden');
+            document.getElementById('quizResultPanel').classList.add('hidden');
+            document.getElementById('quizFooterNav').classList.remove('hidden');
+            
+            loadQuizQuestion();
+        }
+
+        function loadQuizQuestion() {
+            const q = quizData[currentQuizIndex];
+            document.getElementById('quizNumber').innerText = currentQuizIndex + 1;
+            document.getElementById('quizQuestion').innerText = `${currentQuizIndex + 1}. ${q.q}`;
+
+            const percent = ((currentQuizIndex + 1) / quizData.length) * 100;
+            document.getElementById('quizProgressBar').style.width = `${percent}%`;
+
+            const optionsDiv = document.getElementById('quizOptions');
+            optionsDiv.innerHTML = '';
+
+            q.options.forEach((optText, idx) => {
+                const isSelected = quizUserAnswers[currentQuizIndex] === idx;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border font-semibold text-sm transition ${
+                    isSelected ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-200 hover:bg-blue-50'
+                }`;
+                btn.innerText = `${String.fromCharCode(65 + idx)}. ${optText}`;
+                btn.onclick = () => selectQuizOption(idx);
+                optionsDiv.appendChild(btn);
+            });
+
+            // Update live score display
+            const answeredCount = quizUserAnswers.filter(a => a !== null).length;
+            document.getElementById('quizLiveScore').innerText = `${answeredCount}/${quizData.length}`;
+        }
+
+        function selectQuizOption(optionIdx) {
+            quizUserAnswers[currentQuizIndex] = optionIdx;
+            
+            if(currentQuizIndex < quizData.length - 1) {
+                currentQuizIndex++;
+                loadQuizQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            let correctCount = 0;
+            quizData.forEach((q, idx) => {
+                if(quizUserAnswers[idx] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const wrongCount = quizData.length - correctCount;
+            // Formula Nilai = (Jumlah Benar / Total Soal) * 100
+            const finalScore = Math.round((correctCount / quizData.length) * 100);
+
+            document.getElementById('quizBox').classList.add('hidden');
+            document.getElementById('quizFooterNav').classList.add('hidden');
+            document.getElementById('quizResultPanel').classList.remove('hidden');
+
+            document.getElementById('finalScoreDisplay').innerText = finalScore;
+            document.getElementById('countRight').innerText = correctCount;
+            document.getElementById('countWrong').innerText = wrongCount;
+
+            // Feedback Saran
+            const saranEl = document.getElementById('quizSaran');
+            if(finalScore >= 80) {
+                saranEl.className = "p-4 rounded-xl text-sm text-left bg-emerald-100 text-emerald-800 border border-emerald-300";
+                saranEl.innerHTML = `<strong>Sangat Baik (Luar Biasa!):</strong> Pemahamanmu tentang akhlak terpuji sudah sangat memuaskan. Pertahankan dan praktikkan dalam kehidupan sehari-hari!`;
+            } else if(finalScore >= 60) {
+                saranEl.className = "p-4 rounded-xl text-sm text-left bg-amber-100 text-amber-800 border border-amber-300";
+                saranEl.innerHTML = `<strong>Cukup Baik:</strong> Pemahamanmu sudah baik. Silakan baca ulang Materi Berbakti Kepada Guru & Menghormati Orang Lain untuk memperkuat pemahamanmu!`;
+            } else {
+                saranEl.className = "p-4 rounded-xl text-sm text-left bg-rose-100 text-rose-800 border border-rose-300";
+                saranEl.innerHTML = `<strong>Perlu Perbaikan:</strong> Jangan berkecil hati! Pelajari kembali materi pembelajaran dari awal dan ulangi kuis ini ya!`;
+            }
+
+            // Pembahasan Detail
+            const reviewContainer = document.getElementById('quizReviewContainer');
+            reviewContainer.innerHTML = '';
+            quizData.forEach((q, idx) => {
+                const userAns = quizUserAnswers[idx];
+                const isUserRight = userAns === q.correct;
+                const div = document.createElement('div');
+                div.className = `p-3 rounded-lg border ${isUserRight ? 'bg-emerald-50 border-emerald-200' : 'bg-rose-50 border-rose-200'}`;
+                div.innerHTML = `
+                    <p class="font-bold text-slate-800">${idx + 1}. ${q.q}</p>
+                    <p class="text-xs ${isUserRight ? 'text-emerald-700' : 'text-rose-700'} mt-1">
+                        Jawabanmu: ${userAns !== null ? q.options[userAns] : 'Tidak dijawab'} 
+                        ${isUserRight ? '(BENAR)' : `(SALAH - Jawaban Benar: ${q.options[q.correct]})`}
+                    </p>
+                    <p class="text-xs text-slate-600 mt-1 italic"><strong>Pembahasan:</strong> ${q.review}</p>
+                `;
+                reviewContainer.appendChild(div);
+            });
+        }
+
+        // --- INIT ON LOAD ---
+        window.onload = function() {
+            showSection('pageLanding');
+            loadStory(0);
+            renderAlgoUI();
+        };
+    </script>
+</body>
+</html>
